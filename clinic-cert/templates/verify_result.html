@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Hujjat tasdiqlandi{% endblock %}
+{% block content %}
+<div class="card narrow center">
+    <h2>✅ Hujjat haqiqiy</h2>
+    <p><strong>F.I.Sh:</strong> {{ cert["full_name"] }}</p>
+    <p><strong>Berilgan sana:</strong> {{ cert["issue_date"] }}</p>
+    <p><strong>Klinika:</strong> {{ cert["clinic_name"] }}</p>
+    <p><strong>Amal qilish muddati:</strong> {{ cert["valid_until"] }}</p>
+
+    <p>
+        <a class="btn" href="{{ url_for('verify_download', cert_uuid=cert['uuid']) }}" target="_blank">
+            Hujjatni ko'rish / yuklab olish
+        </a>
+    </p>
+</div>
+{% endblock %}

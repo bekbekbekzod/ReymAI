@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Bloklangan{% endblock %}
+{% block content %}
+<div class="card narrow center">
+    <h2>⛔ Vaqtincha bloklandi</h2>
+    <p>Ko'p marta noto'g'ri kod kiritildi. Iltimos, keyinroq qayta urinib ko'ring.</p>
+    <p class="hint">Blokirovka tugash vaqti: {{ locked_until.strftime('%Y-%m-%d %H:%M') }} (UTC)</p>
+</div>
+{% endblock %}

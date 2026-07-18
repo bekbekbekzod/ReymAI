@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Yangi ma'lumotnoma{% endblock %}
+{% block content %}
+<div class="card wide">
+    <h2>Yangi ma'lumotnoma yaratish</h2>
+    <form method="post">
+        <label>Klinika nomi</label>
+        <input type="text" name="clinic_name" required>
+
+        <label>Bemor F.I.Sh</label>
+        <input type="text" name="full_name" required>
+
+        <label>Tug'ilgan sana</label>
+        <input type="date" name="birth_date">
+
+        <label>Passport / ID raqami</label>
+        <input type="text" name="passport">
+
+        <label>Manzil</label>
+        <input type="text" name="address">
+
+        <label>Tashxis / xulosa</label>
+        <textarea name="diagnosis" rows="3"></textarea>
+
+        <label>Ma'lumotnoma maqsadi</label>
+        <input type="text" name="purpose" placeholder="masalan: haydovchilik guvohnomasi uchun">
+
+        <label>Berilgan sana</label>
+        <input type="date" name="issue_date">
+
+        <label>Amal qilish muddati</label>
+        <input type="date" name="valid_until">
+
+        <label>Shifokor F.I.Sh</label>
+        <input type="text" name="doctor_name">
+
+        <button type="submit">Yaratish va PDF generatsiya qilish</button>
+    </form>
+    <p><a href="{{ url_for('admin_dashboard') }}">&larr; Ortga</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Boshqaruv paneli{% endblock %}
+{% block content %}
+<div class="card wide">
+    <div class="row-between">
+        <h2>Ma'lumotnomalar</h2>
+        <div>
+            <a class="btn" href="{{ url_for('admin_create') }}">+ Yangi ma'lumotnoma</a>
+            <a class="btn secondary" href="{{ url_for('admin_logout') }}">Chiqish</a>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Sana</th>
+                <th>F.I.Sh</th>
+                <th>UUID</th>
+                <th>Amallar</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for c in certs %}
+            <tr>
+                <td>{{ c["created_at"][:10] }}</td>
+                <td>{{ c["full_name"] }}</td>
+                <td class="mono">{{ c["uuid"] }}</td>
+                <td>
+                    <a href="{{ url_for('admin_download_pdf', cert_uuid=c['uuid']) }}">PDF</a>
+                    &middot;
+                    <a href="{{ url_for('verify_enter', cert_uuid=c['uuid']) }}" target="_blank">Tekshirish sahifasi</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr><td colspan="4">Hozircha hujjatlar yo'q.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

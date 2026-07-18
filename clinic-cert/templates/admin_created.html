@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Ma'lumotnoma yaratildi{% endblock %}
+{% block content %}
+<div class="card narrow center">
+    <h2>✅ Ma'lumotnoma yaratildi</h2>
+
+    <img class="qr" src="{{ url_for('static', filename='qr/' + qr_filename) }}" alt="QR kod">
+
+    <p>4 xonali tekshirish kodi:</p>
+    <p class="code">{{ code }}</p>
+
+    <p class="hint">
+        Bu kodni QR kod yonida hujjatda chop eting. Bemor QR ni skanerlaganda
+        shu kodni kiritib hujjatni ochadi. Kodni faqat shu yerda ko'rish mumkin —
+        keyinroq qayta ko'rsatib bo'lmaydi, shuning uchun uni hozir chop etilgan
+        hujjatga yozib qo'ying.
+    </p>
+
+    <p><a href="{{ url_for('admin_download_pdf', cert_uuid=cert_uuid) }}" class="btn">PDF ni yuklab olish</a></p>
+    <p><a href="{{ url_for('admin_dashboard') }}">&larr; Ro'yxatga qaytish</a></p>
+</div>
+{% endblock %}

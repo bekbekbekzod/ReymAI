@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Hujjatni tekshirish{% endblock %}
+{% block content %}
+<div class="card narrow center">
+    <h2>Hujjatni tekshirish</h2>
+    <p>Hujjatda yozilgan 4 xonali kodni kiriting</p>
+    <form method="post">
+        <input type="text" name="code" inputmode="numeric" pattern="[0-9]{4}"
+               maxlength="4" class="code-input" autofocus required>
+        <button type="submit">Tekshirish</button>
+    </form>
+</div>
+{% endblock %}
